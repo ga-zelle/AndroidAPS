@@ -1,3 +1,5 @@
+autoISF is a protoype version of adapting ISF in case of persistantly high BG
+
 # AndroidAPS
 
 * Check the wiki: https://androidaps.readthedocs.io
