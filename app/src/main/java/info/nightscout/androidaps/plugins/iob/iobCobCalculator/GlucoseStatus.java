@@ -188,6 +188,10 @@ public class GlucoseStatus {
             for (int i = 1; i < sizeRecords; i++) {
                 BgReading then = data.get(i);
                 long then_date = then.date;
+                //  GZ mod 7c: stop the series if there was a CGM gap greater than 13 minutes, i.e. 2 regular readings
+                if (Math.round((now_date - then_date) / (1000d * 60)) - minutesdur > 13) {
+                    break;
+                }
 
                 if (then.value > oldavg*(1-bw) && then.value < oldavg*(1+bw)) {
                     sumBG += then.value;
